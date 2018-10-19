@@ -45,7 +45,7 @@ def isPairSum(a,i,j,x):
     while i<j:
         if a[i]+a[j]==x:
             pos.append(tuple((a[i],a[j],x)))
-            isPairSum(a,i+1,j,x)
+            isPairSum(a,i+1,j-1,x)
             return True
         elif a[i]+a[j]<x:
             i+=1
@@ -59,5 +59,7 @@ while t>=0:
     n=int(input())
     a=list(map(int,input().split()))
     x=int(input())
-    isPairSum(a,0,len(a)-1,x)
-    print(pos)
+    if isPairSum(a,0,len(a)-1,x):
+        print(pos)
+    else:
+        print("-1")
